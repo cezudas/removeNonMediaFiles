@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/files/icon">
+        <file>add-icon.png</file>
+        <file>remove-icon.png</file>
+        <file>confirm-icon.png</file>
+        <file>Music-icon.png</file>
+        <file>Type-icon.png</file>
+        <file>audio-icon.png</file>
+        <file>video-icon.png</file>
+        <file>Cancel-icon.png</file>
+    </qresource>
+</RCC>
