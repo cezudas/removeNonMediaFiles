@@ -5,7 +5,7 @@
 #include "mitemmodel.h"
 #include <QStandardItem>
 #include <QBoxLayout>
-#include "Gui/mtoolbutton.h"
+#include "mtoolbutton.h"
 class ExtensionsWidget : public QWidget
 {
     Q_OBJECT

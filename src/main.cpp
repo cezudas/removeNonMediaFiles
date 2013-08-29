@@ -1,7 +1,7 @@
 #include <QtGui/QApplication>
-#include "Gui/mainwindow.h"
-#include "Gui/mainwidget.h"
-#include "Gui/extensionswidget.h"
+#include "gui/mainwindow.h"
+#include "gui/mainwidget.h"
+#include "gui/extensionswidget.h"
 #include <QStackedWidget>
 int main(int argc, char **args){
     QApplication a(argc,args);

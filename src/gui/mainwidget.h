@@ -1,13 +1,12 @@
 #ifndef MAINWIDGET_H
 #define MAINWIDGET_H
-
 #include <QWidget>
 #include <QFileSystemModel>
 #include <QListView>
 #include <QBoxLayout>
-#include "Gui/mtoolbutton.h"
+#include "mtoolbutton.h"
 #include <QStringListModel>
-#include "Gui/extensionswidget.h"
+#include "extensionswidget.h"
 class MainWidget : public QWidget
 {
     Q_OBJECT
@@ -29,5 +28,4 @@ public slots:
     void onRmvBtnClick();
     void onCmmtBtnClick();
 };
-
 #endif // MAINWIDGET_H
