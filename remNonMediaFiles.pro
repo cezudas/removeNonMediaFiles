@@ -1,17 +1,22 @@
 RESOURCES += \
     GuiResources.qrc
-
+INCLUDEPATH += \
+	resources \
+	src
+DEPENDPATH += \
+        resources \
+        src
 SOURCES += \
     main.cpp \
-    extensionswidget.cpp \
-    mainwidget.cpp \
-    mainwindow.cpp \
+    Gui/extensionswidget.cpp \
+    Gui/mainwidget.cpp \
+    Gui/mainwindow.cpp \
     mitemmodel.cpp \
-    mtoolbutton.cpp
+    Gui/mtoolbutton.cpp
 
 HEADERS += \
-    extensionswidget.h \
-    mainwidget.h \
-    mainwindow.h \
+    Gui/extensionswidget.h \
+    Gui/mainwidget.h \
+    Gui/mainwindow.h \
     mitemmodel.h \
-    mtoolbutton.h
+    Gui/mtoolbutton.h
