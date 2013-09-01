@@ -20,9 +20,9 @@ private:
     QHBoxLayout *btnLayout;
     MToolButton *cancelBtn,*acceptBtn;
 signals:
-    void widgetHidden();
+    void widgetHidden(QWidget *);
 public slots:
-    void discardChanges();
-    void applyChanges();
+    void onCancelBtnClicked();
+    void onAcceptBtnClicked();
 };
 #endif // EXTENSIONSWIDGET_H

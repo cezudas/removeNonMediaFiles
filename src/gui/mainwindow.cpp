@@ -4,4 +4,3 @@ MainWindow::MainWindow(QStackedWidget *cWidget,QWidget *parent) :
 {
     this->setCentralWidget(cWidget);
 }
-

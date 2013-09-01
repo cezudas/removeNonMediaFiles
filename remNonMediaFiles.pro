@@ -14,8 +14,9 @@ SOURCES += \
     mitemmodel.cpp \
     gui/mtoolbutton.cpp \
     controller/mainwidgetcontroller.cpp \
-    src/repo/dirrepo.cpp \
-    src/repo/extrepo.cpp
+    src/domain/fileeraser.cpp \
+    src/gui/guicontr.cpp \
+    src/controller/extensionswidgetcontroller.cpp
 
 HEADERS += \
     gui/extensionswidget.h \
@@ -24,5 +25,6 @@ HEADERS += \
     mitemmodel.h \
     gui/mtoolbutton.h \
     controller/mainwidgetcontroller.h \
-    src/repo/dirrepo.h \
-    src/repo/extrepo.h
+    src/domain/fileeraser.h \
+    src/gui/guicontr.h \
+    src/controller/extensionswidgetcontroller.h

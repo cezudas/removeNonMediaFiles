@@ -21,11 +21,21 @@ private:
     MToolButton *rmvDirBtn;
     MToolButton *commitBtn;
     MToolButton *chooseTypesBtn;
+public:
+    QModelIndexList selectedDirsIndexes();
 signals:
-    void widgetHidden();
+    void widgetHidden(QWidget *);
+    void dirAdded();
+    void dirsRemoved();
+    void dirsCleaned();
+    void messageSent(const QString &,int);
+private slots:
+    void onChTyBtn();
+    void onAddDirBtnClicked();
+    void onRmvDirBtnClicked();
+    void onCommitBtnClicked();
 public slots:
-    void onAddBtnClick();
-    void onRmvBtnClick();
-    void onCmmtBtnClick();
+    void informUser(const QString &,int timeOut = 0);
+//    void setDirModel()
 };
 #endif // MAINWIDGET_H

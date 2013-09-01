@@ -1,17 +1,16 @@
 #include "mainwidget.h"
 #include <QPixmap>
 #include <QIcon>
-#include <QFileDialog>
 #include <QStatusBar>
 #include <QModelIndexList>
 #include <QFileSystemModel>
 MainWidget::MainWidget(QWidget *parent) :
     QWidget(parent)
 {
-    QIcon addBIcon(":/gui/Icons/add-icon.png");
-    QIcon rmvBIcon(":/gui/Icons/remove-icon.png");
-    QIcon commitBIcon(":/gui/Icons/confirm-icon.png");
-    QIcon chooseBIcon(":/gui/Icons/Type-icon.png");
+    QIcon addBIcon(":/gui/icons/add-icon.png");
+    QIcon rmvBIcon(":/gui/icons/remove-icon.png");
+    QIcon commitBIcon(":/gui/icons/confirm-icon.png");
+    QIcon chooseBIcon(":/gui/icons/Type-icon.png");
 
     QString addBText("Add directories");
     QString rmvBText("Remove selected directories");
@@ -43,59 +42,28 @@ MainWidget::MainWidget(QWidget *parent) :
     optionsLayout->addWidget(rmvDirBtn);
     optionsLayout->addWidget(chooseTypesBtn);
     optionsLayout->addWidget(commitBtn);
-
-
-
+    connect(chooseTypesBtn,SIGNAL(clicked()),this,SLOT(onChTyBtn()));
+    connect(addDirBtn,SIGNAL(clicked()),this,SLOT(onAddDirBtnClicked()));
+    connect(rmvDirBtn,SIGNAL(clicked()),this,SLOT(onRmvDirBtnClicked()));
+    connect(commitBtn,SIGNAL(clicked()),this,SLOT(onCommitBtnClicked()));
 }
-void MainWidget::onRmvBtnClick(){
-/*
-    QModelIndexList selIndexes = dirsListView->selectionModel()->selectedIndexes();
-    if (selIndexes.count() == 0)
-    {
-        this->statusBar()->showMessage("No directory selected",10000);
-        return;
-    }
-    foreach(QModelIndex selIndex,selIndexes){
-        dirsModel->removeRows(selIndex.row(),1);
-    }*/
-}
-void MainWidget::onCmmtBtnClick(){
+QModelIndexList MainWidget::selectedDirsIndexes(){
+    return dirsListView->selectionModel()->selectedIndexes();
 }
 
-void MainWidget::onAddBtnClick(){
-    /*
-    this->statusBar()->clearMessage();
-    QString selDir = QFileDialog::getExistingDirectory(this,"","",QFileDialog::ShowDirsOnly);
-    if(!selDir.isNull()){
-        QStringList currentList = dirsModel->stringList();
-        if(currentList.contains(selDir))
-        {
-            this->statusBar()->showMessage("One directory can't be selected more than once",10000);
-            return;
-        }
-        QStringList subDirs;
-        foreach(QString dir,currentList){
-            if(selDir.contains(dir) == true)
-            {
-                QString statusText = QString("The last selected directory: %1 is a subdirectory of the previously selected %2").arg(selDir).arg(dir);
-                this->statusBar()->showMessage(statusText,10000);
-                return;
-            }
-            if(dir.contains(selDir))
-                subDirs.append(dir);
-        }
-        if(subDirs.count() > 0)
-        {
-            QString statusText = QString("The last selected directory: %1 is the parent folder of the folowing previously selected dirs: ").arg(selDir);
-            statusText.append(subDirs.join(","));
-            this->statusBar()->showMessage(statusText);
-            return;
-        }
-        currentList.append(selDir);
-        dirsModel->setStringList(currentList);
-    }
-    else
-        this->statusBar()->showMessage("Directory selection aborted",3000);*/
+void MainWidget::onChTyBtn(){
+    emit widgetHidden(this);
 }
-
+void MainWidget::onAddDirBtnClicked(){
+    emit dirAdded();
+}
+void MainWidget::onRmvDirBtnClicked(){
+    emit dirsRemoved();
+}
+void MainWidget::onCommitBtnClicked(){
+    emit dirsCleaned();
+}
+void MainWidget::informUser(const QString &m,int timeOut){
+    emit messageSent(m,timeOut);
+}
 

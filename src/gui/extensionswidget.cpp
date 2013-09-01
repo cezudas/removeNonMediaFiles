@@ -5,8 +5,8 @@ ExtensionsWidget::ExtensionsWidget(QWidget *parent) :
     mainLayout = new QVBoxLayout(this);
     filesView = new QTreeView(this);
     model = new MItemModel(this);
-    audioTypes = new QStandardItem(QIcon(":/gui/Icons/audio-icon.png"),"Audio");
-    videoTypes = new QStandardItem(QIcon(":/gui/Icons/video-icon.png"),"Video");
+    audioTypes = new QStandardItem(QIcon(":/gui/icons/audio-icon.png"),"Audio");
+    videoTypes = new QStandardItem(QIcon(":/gui/icons/video-icon.png"),"Video");
     audioTypes->setEditable(false);audioTypes->setCheckable(true);audioTypes->setCheckState(Qt::Checked);
     videoTypes->setEditable(false);videoTypes->setCheckable(true);videoTypes->setCheckState(Qt::Checked);
     QStringList mLabelStringList;
@@ -18,9 +18,9 @@ ExtensionsWidget::ExtensionsWidget(QWidget *parent) :
     mainLayout->addWidget(filesView);
     btnLayout = new QHBoxLayout;
     mainLayout->addLayout(btnLayout);
-    QIcon cancelIcon(":/gui/Icons/Cancel-icon.png");
+    QIcon cancelIcon(":/gui/icons/Cancel-icon.png");
     QString cancelText("revert changes");
-    QIcon acceptIcon(":/gui/Icons/confirm-icon.png");
+    QIcon acceptIcon(":/gui/icons/confirm-icon.png");
     QString acceptText("apply changes");
     cancelBtn = new MToolButton(cancelIcon,cancelText);
     acceptBtn = new MToolButton(acceptIcon,acceptText);
@@ -40,10 +40,12 @@ ExtensionsWidget::ExtensionsWidget(QWidget *parent) :
         itm->setCheckable(true);itm->setEditable(false);itm->setCheckState(Qt::Checked);
         videoTypes->appendRow(itm);
     }
+    connect(cancelBtn,SIGNAL(clicked()),this,SLOT(onCancelBtnClicked()));
+    connect(acceptBtn,SIGNAL(clicked()),this,SLOT(onAcceptBtnClicked()));
 }
-void ExtensionsWidget::discardChanges(){
-    emit widgetHidden();
+void ExtensionsWidget::onCancelBtnClicked(){
+    emit widgetHidden(this);
 }
-void ExtensionsWidget::applyChanges(){
-
+void ExtensionsWidget::onAcceptBtnClicked(){
+    emit widgetHidden(this);
 }

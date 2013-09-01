@@ -1,14 +1,13 @@
 <RCC>
     <qresource prefix="/gui">
-        <file>Icons/add-icon.png</file>
-        <file>Icons/addIcon.ico</file>
-        <file>Icons/audio-icon.png</file>
-        <file>Icons/Cancel-icon.png</file>
-        <file>Icons/confirm-icon.png</file>
-        <file>Icons/Cute-Monsters-icon.png</file>
-        <file>Icons/Music-icon.png</file>
-        <file>Icons/remove-icon.png</file>
-        <file>Icons/Type-icon.png</file>
-        <file>Icons/video-icon.png</file>
+        <file>icons/add-icon.png</file>
+        <file>icons/audio-icon.png</file>
+        <file>icons/Cancel-icon.png</file>
+        <file>icons/confirm-icon.png</file>
+        <file>icons/Cute-Monsters-icon.png</file>
+        <file>icons/Music-icon.png</file>
+        <file>icons/remove-icon.png</file>
+        <file>icons/Type-icon.png</file>
+        <file>icons/video-icon.png</file>
     </qresource>
 </RCC>
