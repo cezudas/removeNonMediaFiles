@@ -2,9 +2,11 @@
 #define EXTENSIONSWIDGET_H
 #include <QWidget>
 #include <QTreeView>
-#include "mitemmodel.h"
 #include <QStandardItem>
+#include <QStandardItemModel>
 #include <QBoxLayout>
+#include "../model/extitmmodel.h"
+#include "../model/extitem.h"
 #include "mtoolbutton.h"
 class ExtensionsWidget : public QWidget
 {
@@ -13,9 +15,6 @@ public:
     explicit ExtensionsWidget(QWidget *parent = 0);
 private:
     QTreeView *filesView;
-    MItemModel *model;
-    QStandardItem *audioTypes;
-    QStandardItem *videoTypes;
     QVBoxLayout *mainLayout;
     QHBoxLayout *btnLayout;
     MToolButton *cancelBtn,*acceptBtn;
@@ -24,5 +23,7 @@ signals:
 public slots:
     void onCancelBtnClicked();
     void onAcceptBtnClicked();
+    void setFilesViewModel(ExtItmModel *model);
+    void expandFilesView();
 };
 #endif // EXTENSIONSWIDGET_H

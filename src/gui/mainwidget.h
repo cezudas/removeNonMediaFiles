@@ -36,6 +36,6 @@ private slots:
     void onCommitBtnClicked();
 public slots:
     void informUser(const QString &,int timeOut = 0);
-//    void setDirModel()
+    void setDirModel(QStringListModel *);
 };
 #endif // MAINWIDGET_H

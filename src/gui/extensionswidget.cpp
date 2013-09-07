@@ -4,17 +4,7 @@ ExtensionsWidget::ExtensionsWidget(QWidget *parent) :
 {
     mainLayout = new QVBoxLayout(this);
     filesView = new QTreeView(this);
-    model = new MItemModel(this);
-    audioTypes = new QStandardItem(QIcon(":/gui/icons/audio-icon.png"),"Audio");
-    videoTypes = new QStandardItem(QIcon(":/gui/icons/video-icon.png"),"Video");
-    audioTypes->setEditable(false);audioTypes->setCheckable(true);audioTypes->setCheckState(Qt::Checked);
-    videoTypes->setEditable(false);videoTypes->setCheckable(true);videoTypes->setCheckState(Qt::Checked);
-    QStringList mLabelStringList;
-    mLabelStringList.append("Media files");
-    model->setHorizontalHeaderLabels(mLabelStringList);
-    model->appendRow(audioTypes);
-    model->appendRow(videoTypes);
-    filesView->setModel(model);
+    filesView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     mainLayout->addWidget(filesView);
     btnLayout = new QHBoxLayout;
     mainLayout->addLayout(btnLayout);
@@ -28,18 +18,6 @@ ExtensionsWidget::ExtensionsWidget(QWidget *parent) :
     btnLayout->addWidget(acceptBtn);
     cancelBtn->setToolTip(cancelBtn->text());
     acceptBtn->setToolTip(acceptBtn->text());
-    QStringList aExts = QString(".mp3,.ogg,.arm,.flac,.wma").split(",");
-    QStringList vExts = QString(".mkv,.avi,.mpeg4,.wmv").split(",");
-    foreach(QString aExt,aExts){
-        QStandardItem *itm = new QStandardItem(aExt);
-        itm->setCheckable(true);itm->setEditable(false);itm->setCheckState(Qt::Checked);
-        audioTypes->appendRow(itm);
-    }
-    foreach(QString vExt,vExts){
-        QStandardItem *itm = new QStandardItem(vExt);
-        itm->setCheckable(true);itm->setEditable(false);itm->setCheckState(Qt::Checked);
-        videoTypes->appendRow(itm);
-    }
     connect(cancelBtn,SIGNAL(clicked()),this,SLOT(onCancelBtnClicked()));
     connect(acceptBtn,SIGNAL(clicked()),this,SLOT(onAcceptBtnClicked()));
 }
@@ -48,4 +26,10 @@ void ExtensionsWidget::onCancelBtnClicked(){
 }
 void ExtensionsWidget::onAcceptBtnClicked(){
     emit widgetHidden(this);
+}
+void ExtensionsWidget::setFilesViewModel(ExtItmModel *model){
+    filesView->setModel(model);
+}
+void ExtensionsWidget::expandFilesView(){
+    filesView->expandAll();
 }

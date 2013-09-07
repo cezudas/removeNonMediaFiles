@@ -9,11 +9,12 @@
 #include "controller/mainwidgetcontroller.h"
 #include <QStackedWidget>
 #include <QStringListModel>
+#include "model/extitmmodel.h"
 int main(int argc, char **args){
     QApplication a(argc,args);
     MainWidget *mainWidget = new MainWidget;
     QStringListModel dirModel;
-    QStringListModel fileExtModel;
+    ExtItmModel fileExtModel;
     FileEraser fileEraser(&dirModel,&fileExtModel);
     ExtensionsWidget *extensionWidget = new ExtensionsWidget;
     QStackedWidget *placeHolderWidget = new QStackedWidget;

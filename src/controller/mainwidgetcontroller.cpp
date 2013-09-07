@@ -9,7 +9,7 @@ MainWidgetController::MainWidgetController(MainWidget *mWidget, QStringListModel
     connect(mainWidget,SIGNAL(dirAdded()),this,SLOT(onDirAdded()));
     connect(mainWidget,SIGNAL(dirsRemoved()),this,SLOT(onDirsRemoved()));
     connect(mainWidget,SIGNAL(dirsCleaned()),this,SLOT(onDirsCleaned()));
-
+    mainWidget->setDirModel(dirModel);
 }
 void MainWidgetController::onDirAdded(){
     QString selDir = QFileDialog::getExistingDirectory(mainWidget,"","",QFileDialog::ShowDirsOnly);

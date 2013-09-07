@@ -4,14 +4,18 @@
 #include <QObject>
 #include "../gui/extensionswidget.h"
 #include <QStringListModel>
+#include "../model/extitmmodel.h"
+#include "../model/extitem.h"
 class ExtensionsWidgetController : public QObject
 {
     Q_OBJECT
 public:
-    explicit ExtensionsWidgetController(ExtensionsWidget *eWidget,QStringListModel *fModel,QObject *parent = 0);
+    explicit ExtensionsWidgetController(ExtensionsWidget *eWidget,ExtItmModel *fModel,QObject *parent = 0);
 private:
     ExtensionsWidget *extensionWidget;
-    QStringListModel *fileExtModel;
+    ExtItmModel *fileExtModel;
+    ExtItem *audioTypes;
+    ExtItem *videoTypes;
 signals:
 public slots:   
 };

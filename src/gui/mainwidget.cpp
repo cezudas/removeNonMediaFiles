@@ -66,4 +66,6 @@ void MainWidget::onCommitBtnClicked(){
 void MainWidget::informUser(const QString &m,int timeOut){
     emit messageSent(m,timeOut);
 }
-
+void MainWidget::setDirModel(QStringListModel * model){
+    dirsListView->setModel(model);
+}

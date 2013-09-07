@@ -1,11 +1,13 @@
 #ifndef FILEERASER_H
 #define FILEERASER_H
 #include <QStringListModel>
+#include "../model/extitmmodel.h"
 class FileEraser
 {
 public:
-    FileEraser(QStringListModel *,QStringListModel *);
+    FileEraser(QStringListModel *,ExtItmModel *);
 private:
-    QStringListModel *dirModel,*fileExtModel;
+    QStringListModel *dirModel;
+    ExtItmModel *fileExtModel;
 };
 #endif // FILEERASER_H
