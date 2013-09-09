@@ -29,6 +29,7 @@ signals:
     void dirsRemoved();
     void dirsCleaned();
     void messageSent(const QString &,int);
+    void jobStarted();
 private slots:
     void onChTyBtn();
     void onAddDirBtnClicked();
@@ -37,5 +38,7 @@ private slots:
 public slots:
     void informUser(const QString &,int timeOut = 0);
     void setDirModel(QStringListModel *);
+    void endJob(QString);
+    void lockToggleInputWidgets();
 };
 #endif // MAINWIDGET_H

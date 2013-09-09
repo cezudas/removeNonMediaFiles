@@ -4,6 +4,7 @@
 #include <QStatusBar>
 #include <QModelIndexList>
 #include <QFileSystemModel>
+#include <QMessageBox>
 MainWidget::MainWidget(QWidget *parent) :
     QWidget(parent)
 {
@@ -50,7 +51,6 @@ MainWidget::MainWidget(QWidget *parent) :
 QModelIndexList MainWidget::selectedDirsIndexes(){
     return dirsListView->selectionModel()->selectedIndexes();
 }
-
 void MainWidget::onChTyBtn(){
     emit widgetHidden(this);
 }
@@ -62,10 +62,20 @@ void MainWidget::onRmvDirBtnClicked(){
 }
 void MainWidget::onCommitBtnClicked(){
     emit dirsCleaned();
+    emit jobStarted();
 }
 void MainWidget::informUser(const QString &m,int timeOut){
     emit messageSent(m,timeOut);
 }
 void MainWidget::setDirModel(QStringListModel * model){
     dirsListView->setModel(model);
+}
+void MainWidget::endJob(QString logFile){
+    QMessageBox::information(this,"job completed","Check " + logFile +" for not successfuly deleted files");
+}
+void MainWidget::lockToggleInputWidgets(){
+    addDirBtn->setEnabled(!addDirBtn->isEnabled());
+    rmvDirBtn->setEnabled(!rmvDirBtn->isEnabled());
+    commitBtn->setEnabled(!commitBtn->isEnabled());
+    chooseTypesBtn->setEnabled(!chooseTypesBtn->isEnabled());
 }

@@ -6,10 +6,8 @@ GuiContr::GuiContr(MainWindow *mWindow, MainWidget *mWidget, ExtensionsWidget *e
     mainWindow = mWindow;
     mainWidget = mWidget;
     extensionWidget = eWidget;
-    //connect(mainWidget,SIGNAL(widgetHidden(QWidget*)),this,SLOT(unSetCentralWidget(QWidget*)));
     connect(mainWidget,SIGNAL(messageSent(QString,int)),this,SLOT(showMessage(QString,int)));
-//    connect(mainWidget,SIGNAL(dirAdded()),this,SLOT(clearMessage()));
-//    connect(mainWidget,SIGNAL(dirsRemoved()),this,SLOT(clearMessage()));
+
 }
 void GuiContr::unSetCentralWidget(QWidget *qw){
     QStackedWidget *placeHolderWidget = (QStackedWidget *)(mainWindow->centralWidget());

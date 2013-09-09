@@ -17,12 +17,12 @@ private:
     QTreeView *filesView;
     QVBoxLayout *mainLayout;
     QHBoxLayout *btnLayout;
-    MToolButton *cancelBtn,*acceptBtn;
+    MToolButton *backBtn;
 signals:
     void widgetHidden(QWidget *);
 public slots:
-    void onCancelBtnClicked();
-    void onAcceptBtnClicked();
+    void onBackBtnClicked();
+
     void setFilesViewModel(ExtItmModel *model);
     void expandFilesView();
 };

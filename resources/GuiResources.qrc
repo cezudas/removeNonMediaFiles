@@ -9,5 +9,6 @@
         <file>icons/remove-icon.png</file>
         <file>icons/Type-icon.png</file>
         <file>icons/video-icon.png</file>
+        <file>icons/back-icon.png</file>
     </qresource>
 </RCC>

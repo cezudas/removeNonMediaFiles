@@ -6,6 +6,7 @@
 #include <QStringListModel>
 #include "../model/extitmmodel.h"
 #include "../model/extitem.h"
+#include <QStandardItem>
 class ExtensionsWidgetController : public QObject
 {
     Q_OBJECT
@@ -18,6 +19,7 @@ private:
     ExtItem *videoTypes;
 signals:
 public slots:   
+
 };
 
 #endif // EXTENSIONSWIDGETCONTROLLER_H

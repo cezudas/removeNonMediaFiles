@@ -1,6 +1,5 @@
 #include "extensionswidgetcontroller.h"
 #include <QStringList>
-#include <QStandardItem>
 ExtensionsWidgetController::ExtensionsWidgetController(ExtensionsWidget *eWidget, ExtItmModel *fModel, QObject *parent):
     QObject(parent)
 {
@@ -26,4 +25,5 @@ ExtensionsWidgetController::ExtensionsWidgetController(ExtensionsWidget *eWidget
     }
      extensionWidget->setFilesViewModel(fileExtModel);
      extensionWidget->expandFilesView();
+
 }

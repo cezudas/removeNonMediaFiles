@@ -8,23 +8,14 @@ ExtensionsWidget::ExtensionsWidget(QWidget *parent) :
     mainLayout->addWidget(filesView);
     btnLayout = new QHBoxLayout;
     mainLayout->addLayout(btnLayout);
-    QIcon cancelIcon(":/gui/icons/Cancel-icon.png");
-    QString cancelText("revert changes");
-    QIcon acceptIcon(":/gui/icons/confirm-icon.png");
-    QString acceptText("apply changes");
-    cancelBtn = new MToolButton(cancelIcon,cancelText);
-    acceptBtn = new MToolButton(acceptIcon,acceptText);
-    btnLayout->addWidget(cancelBtn);
-    btnLayout->addWidget(acceptBtn);
-    cancelBtn->setToolTip(cancelBtn->text());
-    acceptBtn->setToolTip(acceptBtn->text());
-    connect(cancelBtn,SIGNAL(clicked()),this,SLOT(onCancelBtnClicked()));
-    connect(acceptBtn,SIGNAL(clicked()),this,SLOT(onAcceptBtnClicked()));
+    QIcon backIcon(":/gui/icons/back-icon.png");
+    QString backText("done");
+    backBtn = new MToolButton(backIcon,backText,QSize(56,56));
+    btnLayout->addWidget(backBtn);
+    backBtn->setToolTip(backBtn->text());
+    connect(backBtn,SIGNAL(clicked()),this,SLOT(onBackBtnClicked()));
 }
-void ExtensionsWidget::onCancelBtnClicked(){
-    emit widgetHidden(this);
-}
-void ExtensionsWidget::onAcceptBtnClicked(){
+void ExtensionsWidget::onBackBtnClicked(){
     emit widgetHidden(this);
 }
 void ExtensionsWidget::setFilesViewModel(ExtItmModel *model){

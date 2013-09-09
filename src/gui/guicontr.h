@@ -6,7 +6,7 @@
 #include "extensionswidget.h"
 #include "mainwindow.h"
 #include <QStackedWidget>
-
+//#include <QString>
 class GuiContr : public QObject
 {
     Q_OBJECT
@@ -20,6 +20,7 @@ signals:
     void centralWidgetChanged(QWidget *);
 public slots:
     void unSetCentralWidget(QWidget *);
+
 private slots:
     void showMessage(const QString &,int);
 };

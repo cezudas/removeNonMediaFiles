@@ -56,6 +56,13 @@ void MainWidgetController::onDirsRemoved(){
     }
 }
 void MainWidgetController::onDirsCleaned(){
-
+    if(dirModel->rowCount() == 0){
+        mainWidget->informUser("No dirs added",3000);
+        return;
+    }
+    mainWidget->lockToggleInputWidgets();
+    fileEraser->erase();
+    mainWidget->endJob(QDir::currentPath() + "/log.txt");
+    mainWidget->lockToggleInputWidgets();
 }
 

@@ -6,6 +6,8 @@
 #include <QString>
 class ExtItem : public QStandardItem
 {
+private:
+    void initialize();
 public:
     ExtItem(const QIcon & icon, const QString & text);
     ExtItem(const QString & text);
